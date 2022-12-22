@@ -1,20 +1,47 @@
 # Yatube project 
-## Description
+## Описание
 
-The project will be created on the basis of YouTube with the ability to publish content and have a simple registration.
+Проект будет создан на базе YouTube с возможностью публикации контента и простой регистрацией.
 
-## Technologies
-The project uses python 3.7.9 and django 2.2.19
+## Технологии
+В проекте используются Python 3.7.9 и Django 2.2.19
 
-## Installation
+## Установка
 Чтобы запустить проект используйте следующие ставки
 
 ```sh
 py -3.7 -m venv venv
 ```
-then after entering the environment
+затем, после входа в окружающую среду
 ```sh
 pip install -r requirements.txt 
 ```
+- Перейдите в каталог с файлом manage.py выполните команды:
+Выполнить миграции:
+```
+python manage.py migrate
+```
+Создайте супер-пользователя:
+```
+python manage.py createsuperuser
+```
+Соберите статику:
+```
+python manage.py collectstatic
+```
+Запуск проекта:
+```
+python manage.py runserver
+```
+
+### Набор доступных эндпоинтов:
+* ```posts/``` - Отображение постов и публикаций (_GET, POST_);
+* ```posts/{id}``` - Получение, изменение, удаление поста с соответствующим **id** (_GET, PUT, PATCH, DELETE_);
+* ```posts/{post_id}/comments/``` - Получение комментариев к посту с соответствующим **post_id** и публикация новых комментариев(_GET, POST_);
+* ```posts/{post_id}/comments/{id}``` - Получение, изменение, удаление комментария с соответствующим **id** к посту с соответствующим **post_id** (_GET, PUT, PATCH, DELETE_);
+* ```posts/groups/``` - Получение описания зарегестрированных сообществ (_GET_);
+* ```posts/groups/{id}/``` - Получение описания сообщества с соответствующим **id** (_GET_);
+* ```posts/follow/``` - Получение информации о подписках текущего пользователя, создание новой подписки на пользователя (_GET, POST_).<br/>
+
 ## Author
 Aleksandr S. 
